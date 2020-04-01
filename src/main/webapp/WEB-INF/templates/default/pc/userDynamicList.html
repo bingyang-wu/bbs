@@ -27,9 +27,8 @@
 	<script language="javascript" src="${commonPath}js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
 	<script language="javascript" src="${commonPath}js/syntaxhighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
 </head>
-<script type="text/javascript" language="javascript"> 
-	
-	
+<script type="text/javascript" language="javascript">
+
 </script>
 <body>
 <#-- 引入页头 -->
@@ -39,12 +38,12 @@
 
 		<#-- 引入服务导航 -->
 		<@include action="${newPublic_4}"/>
-		
-		
-		
-		
-		<#if pageView.records?exists && pageView.records?size gt 0 > 
-		
+
+
+
+
+		<#if pageView.records?exists && pageView.records?size gt 0 >
+
 		<div class="userDynamicModule" >
 			<ol class="userDynamicList">
 				<#list pageView.records as userDynamic>
@@ -56,15 +55,15 @@
 							<#else>
 								<!--[if (IE)]><img src="${commonPath}images/min_avata.png"><![endif]-->
 								<!--[if !(IE)]><!--><img avatar="${(userDynamic.nickname != null && userDynamic.nickname??) ?string(userDynamic.nickname , userDynamic.userName)}" ><!--<![endif]-->
-							</#if> 
+							</#if>
 							<cite>
 								<a class="userName" href="user/control/home?userName=${userDynamic.userName}">
 									${(userDynamic.nickname != null && userDynamic.nickname??) ?string(userDynamic.nickname , userDynamic.userName)}
 								</a>
-							</cite> 
+							</cite>
 						</div>
-						<div class="userDynamicTime">${userDynamic.postTime}</div> 
-						
+						<div class="userDynamicTime">${userDynamic.postTime}</div>
+
 						<div class="topicTitle">
 							<#if userDynamic.module == 100>
 								<span class="info">发表了话题</span>
@@ -87,21 +86,21 @@
 							<#elseif userDynamic.module == 700>
 								<span class="info">回复了问题</span>
 								<a href="question?questionId=${userDynamic.questionId}">${userDynamic.questionTitle}</a>
-							</#if> 
-							
+							</#if>
+
 							<#list userDynamic.allowRoleViewList as roleName>
 								<i class="topicRoleName">${roleName}</i>
-								
+
 							</#list>
 						</div>
-						
+
 						<#if userDynamic.module == 100>
 							<!-- topicId属性用来支持JS获取隐藏内容 -->
 							<div class="topicContent" topicId="${userDynamic.topicId}" ><#noescape>${userDynamic.topicContent}</#noescape></div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 200>
 							<div class="topicContent" ><#noescape>${userDynamic.commentContent}</#noescape></div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 300>
 							<div id="quoteModuleContent" >
 								<div class="commentContent" ><#noescape>${userDynamic.commentContent}</#noescape></div>
@@ -111,20 +110,20 @@
 	                                </div>
 	                            </div>
 							</div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 400>
 							<div class="replyContent" >${userDynamic.replyContent}</div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 500>
 							<div class="topicContent" ><#noescape>${userDynamic.questionContent}</#noescape></div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 600>
 							<div class="topicContent" ><#noescape>${userDynamic.answerContent}</#noescape></div>
-						</#if> 
+						</#if>
 						<#if userDynamic.module == 700>
 							<div class="replyContent" >${userDynamic.answerReplyContent}</div>
-						</#if> 
-						
+						</#if>
+
 						<div class="clearfix"></div>
 						<div class="tipBottom">
 							<span class="a-toolbar">
@@ -137,7 +136,7 @@
 									<span id="likeCount_${userDynamic.topicId}">0人赞</span>
 									<script type="text/javascript">
 										//查询话题用户收藏总数
-										function queryFavoriteCount(){	
+										function queryFavoriteCount(){
 											//获取话题Id
 											var topicId = ${userDynamic.topicId};
 											get_request(function(value){
@@ -147,12 +146,12 @@
 										        }
 											},
 												"queryFavoriteCount?topicId="+topicId+"&timestamp=" + new Date().getTime(), true);
-															           
+
 										}
 										queryFavoriteCount();
-										
+
 										//查询话题用户点赞总数
-										function queryLikeCount(){	
+										function queryLikeCount(){
 											//获取话题Id
 											var topicId = ${userDynamic.topicId};
 											get_request(function(value){
@@ -162,7 +161,7 @@
 										        }
 											},
 												"queryLikeCount?topicId="+topicId+"&timestamp=" + new Date().getTime(), true);
-															           
+
 										}
 										queryLikeCount();
 									</script>
@@ -180,7 +179,7 @@
 									
 									<script type="text/javascript">				
 										//查询问题用户收藏总数
-										function queryQuestionFavoriteCount(){	
+										function queryQuestionFavoriteCount(){
 											//从URL获取问题Id
 											var questionId = ${userDynamic.questionId};
 											get_request(function(value){
@@ -190,18 +189,18 @@
 										        }
 											},
 												"queryQuestionFavoriteCount.htm?questionId="+questionId+"&timestamp=" + new Date().getTime(), true);
-															           
+
 										}
-										queryQuestionFavoriteCount();	
+										queryQuestionFavoriteCount();
 									</script>	
 								<#elseif userDynamic.module == 600>
 									<a href="question?questionId=${userDynamic.questionId}&answerId=${userDynamic.answerId}" target="_blank" >查看原文</a>
 								<#elseif userDynamic.module == 700>
 									<a href="question?questionId=${userDynamic.questionId}&answerId=${userDynamic.answerId}" target="_blank" >查看原文</a>
-								</#if> 
-								
-							
-								
+								</#if>
+
+
+
 							</span>
 						</div>
 					</div>
@@ -209,17 +208,17 @@
 			</ol>
 		</div>
 		<div style="background: red;"></div>
-		</#if>	
+		</#if>
 		<div class="userDynamicPage">
 		   	<#-- 分页 公共页(生成新引用页)-->
 			<@include action="${newPublic_1}"/>
 		</div>
-	
-	
+
+
 		<#-- 引入话题取消隐藏 -->
 		<@include action="${topicRelated_topicUnhide_2}"/>
-	
-	
+
+
 		<script type="text/javascript">
 		$(document).ready(function () {
 			//隐藏高度超过100px的内容
@@ -238,9 +237,16 @@
 					}
 				}
 			});
-			
-			
+
+
 		});
+
+		// 取消右键事件,避免用户保存视频
+		$("video").bind("contextmenu",function(){
+			return false;
+		});
+
+		$("video").attr("controlslist","nodownload");
 		</script>
 	</div>
 </div>

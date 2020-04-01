@@ -11,7 +11,7 @@
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-	
+
 
 		<dependency>
 			<groupId>javax</groupId>
@@ -44,7 +44,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<dependency>
 		    <groupId>javax.servlet.jsp.jstl</groupId>
 		    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
@@ -68,9 +68,9 @@
 			</exclusions>
 		</dependency>
 
-		
 
-        
+
+
 		<dependency>
 		    <groupId>antlr</groupId>
 		    <artifactId>antlr</artifactId>
@@ -92,7 +92,7 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>	
+		</dependency>
 		<dependency>
 		    <groupId>org.ow2.asm</groupId>
 		    <artifactId>asm</artifactId>
@@ -257,7 +257,7 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>	
+		</dependency>
 		<dependency>
 		    <groupId>net.sf.ehcache</groupId>
 		    <artifactId>ehcache</artifactId>
@@ -328,7 +328,7 @@
 		    <groupId>org.hibernate.javax.persistence</groupId>
 		    <artifactId>hibernate-jpa-2.1-api</artifactId>
 		    <version>1.0.0.Final</version>
-		</dependency>	
+		</dependency>
 		<dependency>
 		    <groupId>org.apache.httpcomponents</groupId>
 		    <artifactId>httpclient</artifactId>
@@ -350,7 +350,7 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>	
+		</dependency>
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-annotations</artifactId>
@@ -395,7 +395,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-				
+
 		<dependency>
 		    <groupId>jaxen</groupId>
 		    <artifactId>jaxen</artifactId>
@@ -760,7 +760,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+
 		<!-- Spring Security -->
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
@@ -884,8 +884,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-		
+
+
 		<!-- 本地JAR -->
 		<dependency>
             <groupId>orgwltea</groupId>
@@ -951,7 +951,7 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>org.queryString</groupId>
             <artifactId>queryUtil</artifactId>
@@ -1021,8 +1021,8 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency> 
-        
+		</dependency>
+
 	</dependencies>
 	<build>
 	    <plugins>
@@ -1032,7 +1032,7 @@
 		        <configuration>
 		          <source>1.8</source>
 		          <target>1.8</target>
-		          <encoding>utf8</encoding> 
+		          <encoding>utf8</encoding>
 		        </configuration>
 		    </plugin>
 			<plugin>
@@ -1054,10 +1054,10 @@
 							<includes>
 								<!-- 只导入所有以jar为后缀的文件 -->
 							    <include>**/*.jar</include>
-							</includes> 
+							</includes>
 						</resource>
 					</webResources>
-					
+
 					<!-- 排除.gitkeep文件 -->
 					<excludes>**/.gitkeep</excludes>
 		        </configuration>

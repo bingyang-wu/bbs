@@ -16,21 +16,21 @@
 <script language="javascript" src="backstage/js/ajax.js" type="text/javascript" ></script>
 <script language="javascript" src="backstage/js/Map.js" type="text/javascript" ></script>
 
-	
-	
+
+
 <script type="text/javascript">
 
 //加载弹出框架
 function loadFrame(url,title){
-	var dialog = $.dialog({ 
+	var dialog = $.dialog({
 		id:'frame_1',
-		title: title, 
-	    lock: true, 
-	    content: 'url: '+url, 
-	    icon: 'error.gif', 
+		title: title,
+	    lock: true,
+	    content: 'url: '+url,
+	    icon: 'error.gif',
 	    cancel: true,
 	    drag:false
-	    
+
 	});
 	dialog.max();
 }
@@ -42,15 +42,15 @@ function callbackFrame(){
 
 //加载修改话题页面
 function loadTopic(title,url){
-	var dialog = $.dialog({ 
+	var dialog = $.dialog({
 		id:'loadTopic_1',
-		title: title, 
-	    lock: true, 
-	    content: 'url: '+url, 
-	    icon: 'error.gif', 
+		title: title,
+	    lock: true,
+	    content: 'url: '+url,
+	    icon: 'error.gif',
 	    cancel: true,
 	    drag:false
-	    
+
 	});
 	dialog.max();
 }
@@ -62,15 +62,15 @@ function callbackTopic(){
 }
 //加载修改问题页面
 function loadQuestion(title,url){
-	var dialog = $.dialog({ 
+	var dialog = $.dialog({
 		id:'loadQuestion_1',
-		title: title, 
-	    lock: true, 
-	    content: 'url: '+url, 
-	    icon: 'error.gif', 
+		title: title,
+	    lock: true,
+	    content: 'url: '+url,
+	    icon: 'error.gif',
 	    cancel: true,
 	    drag:false
-	    
+
 	});
 	dialog.max();
 }
@@ -86,8 +86,8 @@ function callbackQuestion(){
 <body>
 <script type="text/javascript" src="backstage/lhgdialog/lhgcore.lhgdialog.min.js"></script>
 
-<table cellspacing="0" cellpadding="0" width="100%" border="0">  
-	<tr > 
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+	<tr >
 		<td colspan="3" class="top">
 			<div class="box" >
 				<div class="logo-wrap"><div class=logo></div></div>
@@ -109,7 +109,7 @@ function callbackQuestion(){
 				            <li id="nav_5" class="nav-list-item" onClick="editBackground(this.id,'系统设置');">
 				                <div class="pos-rel" ><span class="nav-list-title">系统设置</span></div>
 				            </li>
-				            
+
 				            <li class="nav-list-item ">
 				                <div class="pos-rel" >
 				                	<div class="nav-list-title2">
@@ -151,14 +151,14 @@ function callbackQuestion(){
 			                <li class="nav-list-item">
 			                	<div class="pos-rel" title="后台首页">
 			                		<div class="nav-list-title2" >
-			                			<div class="link-icon"  onclick="createWindow('home','首页','control/center/home${config:suffix()}');return false;" ><i class="fa fa-home"></i></div>	
+			                			<div class="link-icon"  onclick="createWindow('home','首页','control/center/home${config:suffix()}');return false;" ><i class="fa fa-home"></i></div>
 			                    	</div>
 			                    </div>
 			                </li>
 			                <li class="nav-list-item">
 			                	<div class="pos-rel" title="联系我们">
-			                		<div class="nav-list-title2">	
-			                			<a class="link-icon" hidefocus="true" href="http://www.diyhi.com" target=_blank><i class="fa fa-phone" ></i></a> 
+			                		<div class="nav-list-title2">
+			                			<a class="link-icon" hidefocus="true" href="http://www.diyhi.com" target=_blank><i class="fa fa-phone" ></i></a>
 			                    	</div>
 			                    </div>
 			                </li>
@@ -173,7 +173,7 @@ function callbackQuestion(){
 											<span class="role">${sysUsers.userDuty}</span>
 										</div>
 										<div class="more"><i class="fa fa-angle-down"></i></div>
-										
+
 			                      	</div>
 			                    </div>
 			                    <div class="nav-pop-list" >
@@ -190,19 +190,19 @@ function callbackQuestion(){
 			</div>
 		</td>
 	</tr>
-	
-	<tr> 
+
+	<tr>
 		<!-- 左侧导航栏 -->
     	<td id="leftFrame_td"  width="172px" valign="top" class="left ">
     		<div id="main_nav" ></div>
-    	</td> 
-    	
+    	</td>
+
    		<!-- 左侧显示/隐藏菜单  -->
     	<td width="9px" height="100%" valign="top" class="left_navigation ">
     		<div class="main leftArrow" id="main" onclick="menus();"></div>
     	</td>
     	<td valign="top" >
-    		
+
     		<div class="iframeTab" >
 	            <ul class="tabBar clearfix" id="tabBar">
 	            </ul>
@@ -210,13 +210,13 @@ function callbackQuestion(){
     		<div id="tabFrame">
     	 	</div>
     	</td>
-    </tr>  
+    </tr>
 </table>
-</body>  
+</body>
 
 <script type="text/javascript">
 /**
-$(function(){  
+$(function(){
 	var height = $(window).height();//浏览器当前窗口可视区域高度
 	$("#mainFrame").height(height-60);//60为顶部占用位置
 });**/
@@ -269,25 +269,25 @@ function additem(intitle,parentid,inkey){
 }
 function getLeftTree(menuTypeName){
 	var output="";
-	
+
 	for(i=0;i<config.titlelist.length;i++){
 		if(config.titlelist[i].isdefault==1&&config.titlelist[i].menuTypeName==menuTypeName){
 			output+="<DL id=sub_DL_"+i+">";
 			output+="<DT onclick=\"hideorshow('sub_DL_"+i+"')\"><SPAN >"+config.titlelist[i].title+"</SPAN><i id=sub_I_"+i+" class='fa fa-angle-up' style='font-size: 12px;position: absolute;right: 10px;top: 10px; '></i></DT>";
-			
+
 			for(j=0;j<config.itemlist[i].length;j++){
 				//如果内容为空,则输出空行
 				if(config.itemlist[i][j].title == ""){
-					output+="<DD id=sub_DD_"+i+'_'+j+"  style='height: 5px'>";	
-					output+="&nbsp;";	
+					output+="<DD id=sub_DD_"+i+'_'+j+"  style='height: 5px'>";
+					output+="&nbsp;";
 					output+="</DD>";
-					
+
 					continue;
 				}
 				output+="<DD id=sub_DD_"+i+'_'+j+">";
 			//	output+="<A id='A_"+i+'_'+j+"' href='#' ondragstart= 'return false' onclick=\"hyperlink('"+config.itemlist[i][j].key+"','A_"+i+'_'+j+"')\; return false\"  hidefocus='true'>"+config.itemlist[i][j].title+"</A> ";
 				output+="<A id='A_"+i+'_'+j+"' href='#' ondragstart= 'return false' onclick=\"hyperlink('"+config.itemlist[i][j].key+"','A_"+i+'_'+j+"','"+config.itemlist[i][j].title+"')\; return false\"  hidefocus='true'>"+config.itemlist[i][j].title+"</A> ";
-							
+
 				output+="</DD>";
 			}
 			output+="</DL>";
@@ -301,12 +301,12 @@ function hyperlink(url,id,name){
 	//清空所有的字体颜色
 	var font = document.getElementById("main_nav").getElementsByTagName("a");
 	for (var i=0;i<font.length;i++){
-	//	font[i].className="";//有兼容问题		
+	//	font[i].className="";//有兼容问题
 		font[i].style.cssText="";
 	}
 	//设置当前选中选中字体颜色
 //	document.getElementById(a).className="links";//有兼容问题#0099CC
-	document.getElementById(id).style.cssText="color:#1a97e4";		
+	document.getElementById(id).style.cssText="color:#1a97e4";
 	//根据含有后缀字符返回参数
 	var suffix= (url.indexOf("?") != -1 ? "&" : "?")+"jsTime=" + (new Date()).getTime();
 //	window.top.frames['mainFrame'].location=url+suffix;
@@ -318,11 +318,11 @@ function hyperlink(url,id,name){
 //显示隐藏左边框导航分类
 function hideorshow(divid){
 	var sub_detail = document.getElementById(divid).getElementsByTagName("DD");
-	for(i=0;i<sub_detail.length;i++){ 
+	for(i=0;i<sub_detail.length;i++){
 		var array = new Array();
 		array = sub_detail[i].id.split("_");
 		var firstNumber = array[2]; //第一层编号
-		
+
 		if(document.getElementById(sub_detail[i].id).style.display=="none"){
 			document.getElementById(sub_detail[i].id).style.display="block";
 			//alert(sub_detail[i].id);
@@ -330,10 +330,10 @@ function hideorshow(divid){
 		}else{
 			document.getElementById(sub_detail[i].id).style.display="none";
 			document.getElementById("sub_I_"+firstNumber).className="fa fa-angle-down";
-			
-		}	 
+
+		}
 	}
-	
+
 }
 //系统初始化时执行
 function initinav(menuTypeName){
@@ -347,8 +347,8 @@ function initConfig(){
 	var t;
 	t=config.addtitle('系统设置','管理首页',1);
 	config.additem('点击退出登录',t,'');
-	
-	
+
+
 	t=config.addtitle('话题管理','内容管理',1);
 	config.additem('话题列表',t,'${config:url(pageContext.request)}control/topic/list${config:suffix()}');
 	config.additem('标签列表',t,'${config:url(pageContext.request)}control/tag/list${config:suffix()}');
@@ -356,7 +356,7 @@ function initConfig(){
 	config.additem('全部待审核评论',t,'${config:url(pageContext.request)}control/topic/allAuditComment${config:suffix()}');
 	config.additem('全部待审核回复',t,'${config:url(pageContext.request)}control/topic/allAuditReply${config:suffix()}');
 	config.additem('话题搜索',t,'${config:url(pageContext.request)}control/topic/search${config:suffix()}');
-	
+
 	t=config.addtitle('问答管理','内容管理',1);
 	config.additem('问题列表',t,'${config:url(pageContext.request)}control/question/list${config:suffix()}');
 	config.additem('标签列表',t,'${config:url(pageContext.request)}control/questionTag/list${config:suffix()}');
@@ -364,15 +364,15 @@ function initConfig(){
 	config.additem('全部待审核答案',t,'${config:url(pageContext.request)}control/question/allAuditAnswer${config:suffix()}');
 	config.additem('全部待审核回复',t,'${config:url(pageContext.request)}control/question/allAuditAnswerReply${config:suffix()}');
 	config.additem('问题搜索',t,'${config:url(pageContext.request)}control/question/search${config:suffix()}');
-	
+
 	//config.additem('批量操作',t,'');
 	t=config.addtitle('留言管理','内容管理',1);
 	config.additem('留言列表',t,'${config:url(pageContext.request)}control/feedback/list${config:suffix()}');
 	t=config.addtitle('友情链接管理','内容管理',1);
 	config.additem('友情链接列表',t,'${config:url(pageContext.request)}control/links/list${config:suffix()}');
-	
-	
-	
+
+
+
 
 	t=config.addtitle('会员管理','会员管理',1);
 	config.additem('会员搜索',t,'${config:url(pageContext.request)}control/user/search${config:suffix()}');
@@ -381,8 +381,8 @@ function initConfig(){
 	config.additem('会员等级',t,'${config:url(pageContext.request)}control/userGrade/list${config:suffix()}');
 	config.additem('会员注册项',t,'${config:url(pageContext.request)}control/userCustom/list${config:suffix()}');
 	config.additem('会员注册禁止用户名称',t,'${config:url(pageContext.request)}control/disableUserName/list${config:suffix()}');
-	
-	
+
+
 	t=config.addtitle('会员卡管理','会员管理',1);
 	config.additem('会员卡列表',t,'${config:url(pageContext.request)}control/membershipCard/list${config:suffix()}');
 	config.additem('会员卡订单列表',t,'${config:url(pageContext.request)}control/membershipCardOrder/list${config:suffix()}');
@@ -390,27 +390,27 @@ function initConfig(){
 	t=config.addtitle('员工管理','会员管理',1);
 	config.additem('员工列表',t,'${config:url(pageContext.request)}control/staff/list${config:suffix()}');
 	config.additem('角色列表',t,'${config:url(pageContext.request)}control/roles/list${config:suffix()}');
-	
-	
+
+
 	t=config.addtitle('在线帮助管理','页面管理',1);
 	config.additem('在线帮助分类',t,'${config:url(pageContext.request)}control/helpType/list${config:suffix()}');
 	config.additem('在线帮助列表',t,'${config:url(pageContext.request)}control/help/list${config:suffix()}?visible=true');
-	
+
 	t=config.addtitle('模板管理','页面管理',1);
 	config.additem('模板列表',t,'${config:url(pageContext.request)}control/template/list${config:suffix()}');
-	
+
 	t=config.addtitle('浏览量管理','运营管理',1);
 	config.additem('浏览量列表',t,'${config:url(pageContext.request)}control/pageView/list${config:suffix()}');
 	t=config.addtitle('文件打包管理','运营管理',1);
 	config.additem('压缩文件列表',t,'${config:url(pageContext.request)}control/filePackage/list${config:suffix()}');
 	t=config.addtitle('系统通知管理','运营管理',1);
 	config.additem('系统通知列表',t,'${config:url(pageContext.request)}control/systemNotify/list${config:suffix()}');
-	
-	
+
+
 	t=config.addtitle('平台收益管理','运营管理',1);
 	config.additem('解锁话题隐藏内容分成',t,'${config:url(pageContext.request)}control/topicUnhidePlatformShare/list${config:suffix()}');//解锁话题隐藏内容平台分成
 	config.additem('问答悬赏平台分成',t,'${config:url(pageContext.request)}control/questionRewardPlatformShare/list${config:suffix()}');
-	
+
 
 
 	t=config.addtitle('全站设置','系统设置',1);
@@ -420,14 +420,14 @@ function initConfig(){
 	config.additem('数据库备份/还原',t,'${config:url(pageContext.request)}control/dataBase/list${config:suffix()}');
 	config.additem('服务器节点参数',t,'${config:url(pageContext.request)}control/systemSetting/manage${config:suffix()}?method=nodeParameter');
 	config.additem('升级',t,'${config:url(pageContext.request)}control/upgrade/manage${config:suffix()}?method=upgradeSystemList');
-	
+
 	t=config.addtitle('支付管理','系统设置',1);
 	config.additem('在线支付接口',t,'${config:url(pageContext.request)}control/onlinePaymentInterface/list${config:suffix()}');
-	
+
 	t=config.addtitle('短信管理','系统设置',1);
 	config.additem('短信接口列表',t,'${config:url(pageContext.request)}control/smsInterface/list${config:suffix()}');
 	config.additem('短信发送错误日志',t,'${config:url(pageContext.request)}control/sendSmsLog/list${config:suffix()}');
-	
+
 	t=config.addtitle('缩略图管理','系统设置',1);
 	config.additem('缩略图列表',t,'${config:url(pageContext.request)}control/thumbnail/list${config:suffix()}');
 
@@ -443,20 +443,20 @@ initinav('内容管理');
 //改变顶部导航字体背景
 function editBackground(id,sortname){
 	var navigationMenus = document.getElementById("navigationMenu");
-	var childs = navigationMenus.childNodes;    
+	var childs = navigationMenus.childNodes;   
   for(var i = childs.length - 1; i >= 0; i--) {  
 		childs[i].className = "nav-list-item";
-     
-  }  
+    
+  } 
 	//设置当前选中的导航的背景
 	document.getElementById(id).className="nav-list-item on";
 	//显示左侧导航栏菜单
 	config.getLeftTree(sortname);
-}		
+}
 //退出登录
 function submitLogout() {
 	var form = document.getElementById("logout")
-	form.submit();	
+	form.submit();
 }
 
 //后退
@@ -464,7 +464,7 @@ function retreat() {
 	//获取所有生成的框架
 	$("#tabFrame").children().each(function(index,element) {
 		var data_id = $("#"+element.id).attr("data-id");
-		
+
 		var _class = $("#tabId_"+data_id).parent().attr("class");
 		if(_class == "cur"){//如果当前窗口选中
 			//获取当前窗口的记录路径状态
@@ -498,9 +498,9 @@ function retreat() {
 					}
 				}
 			}
-		
+
 		}
-		
+
 	});
 //	window.frames['mainFrame'].history.back();
 }
@@ -509,7 +509,7 @@ function advance() {
 	//获取所有生成的框架
 	$("#tabFrame").children().each(function(index,element) {
 		var data_id = $("#"+element.id).attr("data-id");
-		
+
 		var _class = $("#tabId_"+data_id).parent().attr("class");
 		if(_class == "cur"){//如果当前窗口选中
 			//获取当前窗口的URL路径索引
@@ -529,7 +529,7 @@ function advance() {
 						}
 					}
 				}
-			}	
+			}
 		}
 	});
 //	window.frames['mainFrame'].history.forward();
@@ -539,13 +539,13 @@ function refreshs() {
 	//获取所有生成的框架
 	$("#tabFrame").children().each(function(index,element) {
 		var data_id = $("#"+element.id).attr("data-id");
-		
+
 		var _class = $("#tabId_"+data_id).parent().attr("class");
 		if(_class == "cur"){//如果当前窗口选中
-			
+
 			//当前窗口的URL
 			var url = document.getElementById("mainFrame_"+data_id).contentWindow.location.href;
-			
+
 			//删除锚点
 			var anchor = url.lastIndexOf('#');
 			if(anchor != -1){
@@ -554,12 +554,12 @@ function refreshs() {
 		//	$('#mainFrame_'+data_id).contents().location.href = url;
 			document.getElementById("mainFrame_"+data_id).contentWindow.location.href = url;
 		//	$('#mainFrame_'+data_id).attr('src', url);
-			
+
 			//修改记录路径状态
 			$("#mainFrame_"+data_id).attr("isPath","false");//设置不记录路径
 
 		}
-		
+
 	});
 
 
@@ -574,7 +574,7 @@ function createWindow(id,name,url) {
 	//获取所有生成的框架
 	$("#tabFrame").children().each(function(index,element) {
 		var data_id = $("#"+element.id).attr("data-id");
-		
+
 	//	console.log(element);
 		if(element.id == "mainFrame_"+id){
 			$("#"+element.id).show();
@@ -590,13 +590,13 @@ function createWindow(id,name,url) {
 	if(flag == false){
 		//生成选项卡
 		var tabHtml = "<li class='cur'><a id='tabId_"+id+"' href='javascript:void(0)' hidefocus='true' onclick=\"selectWindow('"+id+"');return false;\">"+name+"</a><i class='close' onclick=\"closeWindow('"+id+"');return false;\">×</i></li>";
-		$("#tabBar").append(tabHtml); 
-		
+		$("#tabBar").append(tabHtml);
+
 		//生成框架   isPath:记录路径状态(是否为"前进/后退"执行的路径)  pathIndex: URL路径索引数组下标 -1为没有执行"前进/后退"命令
 		var iframeHtml = "<iframe id='mainFrame_"+id+"' name='mainFrame_"+id+"' data-id='"+id+"' style='width: 100%;' src='"+url+"' frameborder='no' noResize='noresize' onload=\"recordPath('"+id+"',this.contentWindow.location.href)\" isPath='true' pathIndex='-1'></iframe>";
-		
-		$("#tabFrame").append(iframeHtml); 	
-		
+
+		$("#tabFrame").append(iframeHtml);
+
 		windowHeight(id);
 	}
 }
@@ -621,10 +621,10 @@ function selectWindow(id) {
 //设置窗口高度
 function windowHeight(id) {
 	var height = $(window).height();//浏览器当前窗口可视区域高度
-	
+
 	//标签高度
 	var tabBar_height = $("#tabBar").height();
-	
+
 	$("#mainFrame_"+id).height(height - tabBar_height -3 -60);//60为顶部占用位置
 }
 
@@ -635,7 +635,7 @@ function currentWindow() {
 	//获取所有生成的框架
 	$("#tabFrame").children().each(function(index,element) {
 		var data_id = $("#"+element.id).attr("data-id");
-		
+
 		var _class = $("#tabId_"+data_id).parent().attr("class");
 		if(_class == "cur"){//如果当前窗口选中
 		 	windowId = "mainFrame_"+data_id;
@@ -651,36 +651,36 @@ function closeWindow(id) {
 	$("#tabFrame").children().each(function(index,element) {
 		if(element.id == "mainFrame_"+id){
 			var _class = $("#tabId_"+id).parent().attr("class");
-			
+
 			var data_id = "";
 			if(index >0){
-				
+
 				//获取前一个窗口Id
 				var before_data_id = $("#tabFrame").children()[index-1].id;
-				
-				data_id = $("#"+before_data_id).attr("data-id");	
+
+				data_id = $("#"+before_data_id).attr("data-id");
 			}else{
 				var tabFrame = $("#tabFrame").children()[index+1];
 				if(tabFrame != null){
 					//获取后一个窗口Id
 					data_id = $("#"+tabFrame.id).attr("data-id");
-					
+
 				}
 			}
 			if(data_id != ""){
 				//删除
 				$("#tabId_"+id).parent().remove();
 				$("#mainFrame_"+id).remove();
-				
+
 				//删除当前窗口的路径记录
 				urlMap.remove(id);
-				
+
 				if(_class == "cur"){//如果关闭的窗口当前选中
 					//选中窗口
 					$("#mainFrame_"+data_id).show();
 					$("#tabId_"+data_id).parent().addClass("cur");
 				}
-				
+
 				//设置窗口高度
 				windowHeight(data_id);
 			}
@@ -701,9 +701,9 @@ function recordPath(id,url) {
 	}
 	//获取当前窗口的URL路径索引
 	var pathIndex = $("#mainFrame_"+id).attr("pathIndex");
-	
+
 	var urlValue = urlMap.get(id);
-	
+
 	if(parseInt(pathIndex)  != -1){//如果执行过"前进/后退"
 		if(urlValue != null){
 			for(var i = urlValue.length-1; i>=0; i--){//倒序循环
@@ -720,7 +720,7 @@ function recordPath(id,url) {
 	}else{
 		var arr = new Array();
 		arr.push(url);
-		urlMap.put(id,arr);   
+		urlMap.put(id,arr);
 	}
 	//修改URL路径索引
 	$("#mainFrame_"+id).attr("pathIndex","-1");
@@ -734,18 +734,18 @@ createWindow('home','首页','control/center/home${config:suffix()}');
 $(function(){
 	//监听标签大小变化
 	$('#tabBar').resize(function(){
-	
+
 		//获取所有生成的框架
 		$("#tabFrame").children().each(function(index,element) {
 			var data_id = $("#"+element.id).attr("data-id");
-			
+
 			var _class = $("#tabId_"+data_id).parent().attr("class");
 			if(_class == "cur"){//如果当前窗口选中
 				//设置窗口高度
 				windowHeight(data_id);
 			}
 		});
-	
+
 	});
 });
 
