@@ -250,12 +250,13 @@ public class ForumCodeManageAction {
 		}else{
 			error.put("name", "模板名称不能为空");
 		}
-		if(error.size() >0){//有错误
+		//有错误
+		if(error.size() >0){
 			returnJson.put("error", error);
 			returnJson.put("success", false);
 		}else{
-			
-			String newFileName = prefix+selected_displayType+"_"+name;//文件名称
+			//文件名称
+			String newFileName = prefix+selected_displayType+"_"+name;
 			String pc_newPath = "WEB-INF"+File.separator+"templates"+File.separator+dirName+File.separator+"pc"+File.separator+"forum"+File.separator+newFileName+".html";
 			File pc_newFile = new File(PathUtil.path()+File.separator+pc_newPath);
 			//旧路径
